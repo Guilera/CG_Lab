@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>MATA65 - Computacao Grafica</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		
+		<script type="text/javascript">
+		
+			var imgW, imgH;
+		
+			function imgInfo() {
+				imgW = document.getElementById("logo").width;
+				imgH = document.getElementById("logo").height;
+				
+				var txt = 	"Imagem :" + document.getElementById("logo").src + 
+							"<br/> Dimensao = " + imgH + " <i>x</i> " + imgW;
+							
+				document.getElementById("output").innerHTML = txt;		
+				}
+				
+			function changeSize(factor) {
+			
+				var h = document.getElementById("logo").height;
+				var w = document.getElementById("logo").width;
+				
+				var imgRatio = Math.max(h/imgH, w/imgW);
+				console.log(imgRatio);
+			
+				if ( ( ( factor < 1 ) && (imgRatio > 0.25) ) || 
+					 ( ( factor > 1 ) && (imgRatio < 1.0) ) )	{
+					h *= factor;
+					w *= factor;
+					}
+				document.getElementById("output").innerHTML = "Imagem Original:" + document.getElementById("logo").src + 
+							"<br/> Dimensao = " + imgH + " <i>x</i> " + imgW;
+				document.getElementById("output").innerHTML += "</br><br/> Nova Dimensao = " + h + " <i>x</i> " + w;
+							
+				document.getElementById("logo").height	= h;
+				document.getElementById("logo").width 	= w;
+				}
+		</script>
+	</head>
+    <h1>Laboratorio 0 - Exemplo 3</h1><br/>
+	<body>
+		<p>Monta pagina com um botao e trata o evento de clique.</p>
+		<br/><br/>
+		<input type="button" name="reduz" value="Reduz imagem" onclick="changeSize(0.75)">
+		<br/>
+		<input type="button" name="amplia" value="Amplia imagem" onclick="changeSize(1.25)">
+		<br/><br/>
+		<div id="output"> </div>
+		<br/>
+		<img id="logo" src="../../Assets/Images/webgl-logo.svg" alt="WebGL Logo" onload="imgInfo()">	
+	</body>
+</html>
