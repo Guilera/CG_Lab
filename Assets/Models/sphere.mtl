@@ -1,0 +1,6 @@
+# Simple Material
+
+newmtl SphereMat
+Kd 0.3 1.0 0.8
+
+

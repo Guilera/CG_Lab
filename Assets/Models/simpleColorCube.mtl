@@ -1,0 +1,20 @@
+# Simple Material
+
+newmtl Front
+Kd 1.0 0.0 0.0
+
+newmtl Back
+Kd 1.0 1.0 0.0
+
+newmtl Left
+Kd 0.0 1.0 0.0
+
+newmtl Right
+Kd 0.0 1.0 1.0
+
+newmtl Top
+Kd 0.0 0.0 1.0
+
+newmtl Bottom
+Kd 1.0 0.0 1.0
+

@@ -1,0 +1,16 @@
+# Wavefront MTL file
+# Creator: Ultimate Unwrap3D Pro v3.29
+# URL: http://www.unwrap3d.com
+# Time: Tue Sep 20 10:13:32 2011
+# num_materials: 1
+
+newmtl House_Mat
+Ka 0.000000 0.000000 0.000000
+Kd 0.820000 0.830000 0.870000
+Ks 0.820000 0.830000 0.870000
+d 1.000000
+illum 2
+Ns 1.000000
+map_Kd ../Textures/HouseMed_Diff.jpg
+
+# num_materials: 1

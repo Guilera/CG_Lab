@@ -1,0 +1,53 @@
+# test object
+# cubeTriangle.obj
+# a cube drawn with triangles
+
+mtllib cubeMultiColor.mtl
+
+v 1.0 -1.0 -1.0
+v 1.0 -1.0 1.0
+v -1.0 -1.0 1.0
+v -1.0 -1.0 -1.0
+
+v 1.0 1.0 -1.0
+v 1.0 1.0 1.0
+v -1.0 1.0 1.0
+v -1.0 1.0 -1.0
+
+g Top
+f 7 6 5 8
+#f 7 6 5
+#f 7 5 8
+g Bottom
+f 2 3 4 1
+#f 3 4 1
+#f 3 1 2
+g Front
+f 3 2 6 7
+#f 2 7 3
+#f 2 6 7
+g Back
+f 1 4 8 5
+#f 1 4 8
+#f 1 8 5
+g Right
+f 4 3 7 8
+#f 7 4 3
+#f 7 8 4
+g Left
+f 2 1 5 6
+#f 1 6 2
+#f 1 5 6
+
+group Top
+usemtl Top
+group Bottom
+usemtl Bottom
+group Front
+usemtl Front
+group Back
+usemtl Back
+group Left
+usemtl Left
+group Right
+usemtl Right

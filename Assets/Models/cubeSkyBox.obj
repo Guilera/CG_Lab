@@ -1,0 +1,59 @@
+# test object
+# cubeTriangle.obj
+# a cube drawn with triangles
+
+mtllib cubeSkyBox.mtl
+
+v  1.0 -1.0 -1.0
+v  1.0 -1.0  1.0
+v -1.0 -1.0  1.0
+v -1.0 -1.0 -1.0
+
+v  1.0  1.0 -1.0
+v  1.0  1.0  1.0
+v -1.0  1.0  1.0
+v -1.0  1.0 -1.0
+
+vn  1.0  0.0  0.0
+vn -1.0  0.0  0.0
+vn  0.0  1.0  0.0
+vn  0.0 -1.0  0.0
+vn  0.0  0.0  1.0
+vn  0.0  0.0 -1.0
+
+vt 0.0 0.0
+vt 1.0 0.0
+vt 1.0 1.0
+vt 0.0 1.0
+
+g Top
+f 7/1/3 6/2/3 5/3/3
+f 7/1/3 5/3/3 8/4/3
+g Bottom
+f 3/2/4 4/3/4 1/4/4
+f 3/2/4 1/4/4 2/1/4
+g Front
+f 2/2/5 7/4/5 3/1/5
+f 2/2/5 6/3/5 7/4/5
+g Back
+f 1/1/6 4/2/6 8/3/6
+f 1/1/6 8/3/6 5/4/6
+g Right
+f 7/3/2 4/1/2 3/2/2
+f 7/3/2 8/4/2 4/1/2
+g Left
+f 1/2/1 6/4/1 2/1/1
+f 1/2/1 5/3/1 6/4/1
+
+group Top
+usemtl Top
+group Bottom
+usemtl Bottom
+group Front
+usemtl Front
+group Back
+usemtl Back
+group Left
+usemtl Left
+group Right
+usemtl Right

@@ -1,0 +1,221 @@
+#
+#  al.mtl
+#
+
+newmtl shoe1L
+Ka 0.2 0.2 0.2
+Kd 0.1 0.1 0.1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl shoe2L
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl shoe3L
+Ka 0.2 0.2 0.2
+Kd 0.3 0.2 0.1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl shoe4L
+Ka 0.2 0.2 0.2
+Kd 0.2 0.2 0.2
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl lowlegL
+Ka 0.2 0.2 0.2
+Kd 0.1 0.1 0.1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl uplegL
+Ka 0.2 0.2 0.2
+Kd 0.1 0.1 0.1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl lowarmL
+Ka 0.2 0.2 0.2
+Kd 0.1 0.1 0.2
+map_Kd ../Textures/fabric1.rgb
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl sleaveL
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl handL
+Ka 0.2 0.2 0.2
+Kd 0.9 0.5 0.4
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl uparmL
+Ka 0.2 0.2 0.2
+Kd 0.1 0.1 0.2
+map_Kd ../Textures/fabric1.rgb
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl shoe1R
+Ka 0.2 0.2 0.2
+Kd 0.1 0.1 0.1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl shoe2R
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl shoe3R
+Ka 0.2 0.2 0.2
+Kd 0.3 0.2 0.1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl shoe4R
+Ka 0.2 0.2 0.2
+Kd 0.2 0.2 0.2
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl lowlegR
+Ka 0.2 0.2 0.2
+Kd 0.1 0.1 0.1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl uplegR
+Ka 0.2 0.2 0.2
+Kd 0.1 0.1 0.1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl pelvis
+Ka 0.2 0.2 0.2
+Kd 0.1 0.1 0.1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl lowarmR
+Ka 0.2 0.2 0.2
+Kd 0.1 0.1 0.2
+map_Kd ../Textures/fabric1.rgb
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl sleaveR
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl handR
+Ka 0.2 0.2 0.2
+Kd 0.9 0.5 0.4
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl coat
+Ka 0.2 0.2 0.2
+Kd 0.1 0.1 0.2
+map_Kd ../Textures/fabric1.rgb
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl shirt
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl tie
+Ka 0.2 0.2 0.2
+Kd 0.5 0 0
+map_Kd ../Textures/fantasy.rgb
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl buttons
+Ka 0.2 0.2 0.2
+Kd 0.4 0.4 0.4
+map_Kd ../Textures/brass.rgb
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl uparmR
+Ka 0.2 0.2 0.2
+Kd 0.1 0.1 0.2
+map_Kd ../Textures/fabric1.rgb
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl hat
+Ka 0.2 0.2 0.2
+Kd 0.2 0.2 0.2
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl band
+Ka 0.2 0.2 0.2
+Kd 0.1 0.1 0.3
+map_Kd ../Textures/fantasy.rgb
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl face
+Ka 0.2 0.2 0.2
+Kd 0.9 0.5 0.4
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl hair
+Ka 0.2 0.2 0.2
+Kd 0.3 0.2 0.1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl irisR
+Ka 0.2 0.2 0.2
+Kd 0.2 0.2 0.4
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl eyewhiteR
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl pupilR
+Ka 0.2 0.2 0.2
+Kd 0 0 0
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl irisL
+Ka 0.2 0.2 0.2
+Kd 0.2 0.2 0.4
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl eyewhiteL
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 1.0 1.0 1.0
+Ns 10.0
+
+newmtl pupilL
+Ka 0.2 0.2 0.2
+Kd 0 0 0
+Ks 1.0 1.0 1.0
+Ns 10.0

@@ -1,0 +1,29 @@
+newmtl bricks
+Kd 1.0 0.3 0.7
+Ka 0.2 0.2 0.2
+Ks 1.0 1.0 1.0
+Ns 100.0
+map_Kd ../../Assets/Textures/bricks.jpg
+
+newmtl blackHoles
+Kd 1.0 0.3 0.7
+Ka 0.2 0.2 0.2
+Ks 1.0 1.0 1.0
+Ns 20.0
+map_Kd ../../Assets/Textures/blackHoles.jpg
+
+newmtl MetalGround
+Kd 1.0 0.3 0.7
+Ka 0.2 0.2 0.2
+Ks 1.0 1.0 1.0
+Ns 20.0
+map_Kd ../../Assets/Textures/MetalGround.jpg
+
+newmtl GrayWall
+Kd 1.0 0.3 0.7
+Ka 0.2 0.2 0.2
+Ks 1.0 1.0 1.0
+Ns 20.0
+map_Kd ../../Assets/Textures/grayWall.jpg
+
+

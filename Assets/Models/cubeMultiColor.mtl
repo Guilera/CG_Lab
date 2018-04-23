@@ -1,0 +1,20 @@
+# Blender3D MTL File: 
+# Material Count: 3
+newmtl Top
+Kd 0.0 1.0 0.0
+
+newmtl Bottom
+Kd 1.0 1.0 0.0
+
+newmtl Front
+Kd 0.0 0.0 1.0
+
+newmtl Back
+Kd 0.0 1.0 1.0
+
+newmtl Left
+Kd 1.0 0.0 0.0
+
+newmtl Right
+Kd 1.0 0.0 1.0
+
