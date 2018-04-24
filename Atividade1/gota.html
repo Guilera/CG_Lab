@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gota 3D</title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		label {
+			font-size: 25px;
+		}
+		input {
+			font-size: 20px;
+		}
+		.radio {
+			width: 20px;
+			height: 20px;
+			/*border-radius: 50%;*/
+		}
+		button {
+			width: 80px;
+			height: 40px;
+			font-size: 16px;
+		}
+	</style>
+</head>
+
+<script type="text/javascript" src="../libs/three.js"></script>
+<script type="text/javascript" src="gota.js"></script>
+
+<body onload="init()">
+	<span id="canvas"></span>
+	<div style="display: inline-block; vertical-align: top;">
+		<h1>BRUNO GUILERA</h1>
+		<h1>Atividade 1 - Modelagem de Objetos 3D</h1>
+		<h1>GOTA</h1>
+		<label>Resolution:</label>
+		<input id="slider" type="range" step="1" style="vertical-align: middle;" value="30" min="5" max="200" 
+			onchange="updateTextInput(this.value); makeGota()">
+		<input id="textInput" type="text" value="30" style="width: 40px; border: none;" 
+			onchange="updateSlider(this.value); makeGota()">
+		<br>
+		<input id="checkbox" class="radio" type="checkbox" checked onclick="makeGota()">
+		<label>Wireframe / Solid</label>
+		<br><br>
+		<label>Color Pattern:</label>
+		<h3>
+			<input class="radio" type="radio" id="solid" name="color" value="solid" onclick="makeGota()" checked> 
+			Fixed: 0x0000FF
+		</h3>
+		<h3>
+			<input class="radio" type="radio" id="cartesian" name="color" value="cartesiana" onclick="makeGota()">
+			Cartesian Coordinates: RGB(x , y , z)
+		</h3>
+		<h3>
+			<input class="radio" type="radio" id="spherical" name="color" value="esferica" onclick="makeGota()">
+			Spherical Coordinates: HSL(&Omega; , 1 , &theta;)
+		</h3>
+		<button>Animate</button>
+		<button>Stop</button>
+	</div>
+</body>
+</html>

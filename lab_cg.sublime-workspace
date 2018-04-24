@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"de",
+				"delta_omega"
+			],
+			[
+				"del",
+				"delta_omega"
+			],
+			[
+				"fo",
+				"forEach"
+			],
+			[
+				"load",
+				"loadMesh"
+			],
+			[
 				"v",
 				"Vector3"
 			],
@@ -26,10 +42,6 @@
 			[
 				"M",
 				"Math"
-			],
-			[
-				"fo",
-				"for\tfor (…) {…} (Improved Native For-Loop)"
 			],
 			[
 				"pre",
@@ -480,19 +492,19 @@
 	"buffers":
 	[
 		{
-			"file": "Lab0/17-cylinder.js",
+			"file": "Atividade1/gota.html",
 			"settings":
 			{
-				"buffer_size": 2342,
+				"buffer_size": 582,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Lab0/17-cylinder.html",
+			"file": "Atividade1/gota.js",
 			"settings":
 			{
-				"buffer_size": 362,
+				"buffer_size": 2091,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -622,15 +634,19 @@
 	"expanded_folders":
 	[
 		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab",
-		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Lab0"
+		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Atividade1"
 	],
 	"file_history":
 	[
+		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Lab0/17-cylinder.html",
+		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Lab0/8-TriangleStrip.js",
+		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Lab0/17-cylinder.js",
+		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Lab0/11-simpleLoadOBJ.html",
+		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Lab0/11-simpleLoadOBJ.js",
 		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Lab0/14-Ring.js",
 		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/libs/three.js",
 		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Lab0/9-TriangleFan.js",
 		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Lab0/16-Tetrahedron.html",
-		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Lab0/17-cylinder.html",
 		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Lab0/16-Tetrahedron.js",
 		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Lab1/16-Tetrahedron.js",
 		"/home/guilera/Documentos/Artigo/clei-paper/table/analysis.tex",
@@ -749,11 +765,7 @@
 		"/home/guilera/Dropbox/UFBA/6º Semestre/Sistemas Distribuídos/mata88/report2/sections/introduction.tex",
 		"/home/guilera/Dropbox/UFBA/6º Semestre/Sistemas Distribuídos/mata88/report2/main.tex",
 		"/home/guilera/Dropbox/UFBA/6º Semestre/Sistemas Distribuídos/mata88/report2/sections/functionalities.tex",
-		"/home/guilera/Dropbox/UFBA/6º Semestre/Sistemas Distribuídos/mata88/ClientApp.java",
-		"/home/guilera/Dropbox/UFBA/6º Semestre/Banco de Dados/Trabalho/mata60_database/CRUD_PHP/metodo/conectar.php",
-		"/home/guilera/Dropbox/UFBA/6º Semestre/Sistemas Distribuídos/mata88/Client.java",
-		"/home/guilera/Dropbox/UFBA/6º Semestre/Sistemas Distribuídos/mata88/Chat.java",
-		"/home/guilera/Dropbox/UFBA/6º Semestre/Sistemas Distribuídos/mata88/ChatHandler.java"
+		"/home/guilera/Dropbox/UFBA/6º Semestre/Sistemas Distribuídos/mata88/ClientApp.java"
 	],
 	"find":
 	{
@@ -771,6 +783,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"triangleMesh",
+			"triangleMaterial",
+			"triangleGeometry"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -778,6 +793,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"gotaMesh",
+			"gotaMaterial",
+			"gotaGeometry"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -793,29 +811,28 @@
 			[
 				{
 					"buffer": 0,
-					"file": "Lab0/17-cylinder.js",
+					"file": "Atividade1/gota.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2342,
+						"buffer_size": 582,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2304,
-								2304
+								333,
+								333
 							]
 						],
 						"settings":
 						{
 							"_anf_new": "",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 108.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -823,27 +840,28 @@
 				},
 				{
 					"buffer": 1,
-					"file": "Lab0/17-cylinder.html",
+					"file": "Atividade1/gota.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 362,
+						"buffer_size": 2091,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								138,
-								138
+								2083,
+								2083
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
+							"_anf_new": "",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 964.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -891,7 +909,7 @@
 	"project": "lab_cg.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -901,16 +919,32 @@
 		"selected_items":
 		[
 			[
+				"strip",
+				"Lab0/8-TriangleStrip.js"
+			],
+			[
+				"8",
+				"Lab0/8-TriangleStrip.js"
+			],
+			[
+				"17",
+				"Lab0/17-cylinder.html"
+			],
+			[
+				"simpleload",
+				"Lab0/11-simpleLoadOBJ.js"
+			],
+			[
+				"simplelo",
+				"Lab0/11-simpleLoadOBJ.html"
+			],
+			[
 				"th",
 				"libs/three.js"
 			],
 			[
 				"fan",
 				"Lab0/9-TriangleFan.js"
-			],
-			[
-				"17",
-				"Lab0/17-cylinder.html"
 			],
 			[
 				"rin",
@@ -1131,7 +1165,7 @@
 		[
 			[
 				"",
-				"~/Documentos/Artigo/clei-paper/section/clei-paper-2018.sublime-project"
+				"~/Documentos/Cursos/WEB Development/YelpCamp/yelp_camp.sublime-project"
 			]
 		],
 		"width": 380.0
