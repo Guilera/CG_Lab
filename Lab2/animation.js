@@ -18,7 +18,7 @@ function init() {
 
 	document.getElementById("WebGL-output").appendChild(renderer.domElement);
 
-	camera = new THREE.OrthographicCamera( -1.0, 1.0, 1.0, -1.0, -1.0, 1.0 );
+	camera = new THREE.OrthographicCamera( -1, 1.0, 1.0, -1.0, -10.0, 10.0 );
 	scene.add( camera );
 	
 	// Box

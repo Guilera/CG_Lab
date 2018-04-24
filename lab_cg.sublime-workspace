@@ -113,7 +113,7 @@
 			],
 			[
 				"min",
-				"min\tAttr"
+				"min	Attr"
 			],
 			[
 				"S",
@@ -141,7 +141,7 @@
 			],
 			[
 				"auto",
-				"autofocus\tAttr"
+				"autofocus	Attr"
 			],
 			[
 				"dr",
@@ -201,15 +201,15 @@
 			],
 			[
 				"if",
-				"if\tif"
+				"if	if"
 			],
 			[
 				"for",
-				"for\tfor (…) {…}"
+				"for	for (…) {…}"
 			],
 			[
 				"form",
-				"formmethod\tAttr"
+				"formmethod	Attr"
 			],
 			[
 				"blo",
@@ -265,7 +265,7 @@
 			],
 			[
 				"pa",
-				"placeholder\tAttr"
+				"placeholder	Attr"
 			],
 			[
 				"body",
@@ -341,11 +341,11 @@
 			],
 			[
 				"ac",
-				"action\tAttr"
+				"action	Attr"
 			],
 			[
 				"g",
-				"get\tGet Elements"
+				"get	Get Elements"
 			],
 			[
 				"sc",
@@ -361,7 +361,7 @@
 			],
 			[
 				"me",
-				"meta\tTag"
+				"meta	Tag"
 			],
 			[
 				"uf",
@@ -524,7 +524,6 @@
 			"settings":
 			{
 				"buffer_size": 1678,
-				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -533,20 +532,14 @@
 			"settings":
 			{
 				"buffer_size": 4545,
-				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
-	"build_system_choices":
-	[
-	],
-	"build_varint": "",
 	"command_palette":
 	{
 		"height": 375.0,
-		"last_filter": "con",
 		"selected_items":
 		[
 			[
@@ -646,13 +639,7 @@
 	},
 	"console":
 	{
-		"height": 160.0,
-		"history":
-		[
-			"ls",
-			"sublime.log_commands(true)",
-			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
-		]
+		"height": 160.0
 	},
 	"distraction_free":
 	{
@@ -663,11 +650,6 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab",
-		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Atividade1"
-	],
 	"file_history":
 	[
 		"/home/guilera/Dropbox/UFBA/7º Semestre/Computação Gráfica/Lab/Lab0/17-cylinder.html",
@@ -805,7 +787,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 238.0,
+		"height": 0.0,
 		"where_history":
 		[
 		]
@@ -850,7 +832,6 @@
 				{
 					"buffer": 0,
 					"file": "Atividade1/gota.html",
-					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 1678,
@@ -874,13 +855,11 @@
 						"translation.y": 648.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
 					"file": "Atividade1/gota.js",
-					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 4545,
@@ -904,7 +883,6 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -945,8 +923,6 @@
 	{
 		"height": 120.0
 	},
-	"pinned_build_system": "",
-	"project": "lab_cg.sublime-project",
 	"replace":
 	{
 		"height": 66.0
@@ -955,7 +931,6 @@
 	"select_file":
 	{
 		"height": 0.0,
-		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -1200,7 +1175,6 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -1210,27 +1184,10 @@
 		],
 		"width": 380.0
 	},
-	"select_symbol":
-	{
-		"height": 0.0,
-		"last_filter": "",
-		"selected_items":
-		[
-		],
-		"width": 0.0
-	},
-	"selected_group": 0,
-	"settings":
-	{
-	},
 	"show_minimap": false,
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": false,
 	"side_bar_width": 167.0,
-	"status_bar_visible": true,
-	"template_settings":
-	{
-		"max_columns": 1
-	}
+	"status_bar_visible": true
 }

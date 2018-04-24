@@ -34,19 +34,18 @@ function init() {
 	// Eixo da Terra
 	var tAxis = new THREE.AxisHelper(0.15);
 
-	// Terra
-	
+	// Terra	
 	sphereGeometry = new THREE.SphereGeometry( 0.1, 20, 20);                 
 	sphereMat = new THREE.MeshBasicMaterial( {color: 0x0000ff, wireframe:true} );
 	earth = new THREE.Mesh( sphereGeometry, sphereMat );
+	earth.position.set(0.5, 0, 0);
 	earth.add(tAxis);
 	scene.add( earth );	
 		
 	// Eixo da Lua
 	var lAxis = new THREE.AxisHelper(0.04);
 
-	// Lua
-	
+	// Lua	
 	sphereGeometry = new THREE.SphereGeometry( 0.03, 10, 10 );                 
 	sphereMat = new THREE.MeshBasicMaterial( {color: 0xaaaaaa, wireframe:true} );
 	moon = new THREE.Mesh( sphereGeometry, sphereMat );
@@ -58,17 +57,26 @@ function init() {
 };
 
 function render() {
-	var m = new THREE.Matrix4();
+	var m1 = new THREE.Matrix4(),
+		m2 = new THREE.Matrix4();
 	
 	day 	+= 0.07;
 	year 	+= 0.01;
 	month 	+= 0.04;
 	
-	m.identity();
-	sun.matrix.copy(m);
-	m.makeRotationY(year);
-	sun.applyMatrix(m);
+	m1.identity();
+	sun.matrix.copy(new THREE.Matrix4().identity());
+	m1.makeRotationY(year);
+	sun.applyMatrix(m1);
 	sun.updateMatrix();
+
+	m2.identity();
+	earth.matrix.copy(m2);
+	m2.makeTranslation(0.7, 0, 0);
+	earth.applyMatrix(m2);
+	m2.makeRotationY(year);
+	earth.applyMatrix(m2);
+	earth.updateMatrix();
 
 	renderer.render(scene, camera);
 	

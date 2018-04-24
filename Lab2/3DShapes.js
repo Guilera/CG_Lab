@@ -21,7 +21,7 @@ function init() {
 	var boxMat = new THREE.MeshBasicMaterial( {color: 0x0000ff,wireframe:true} );
 	var cube = new THREE.Mesh( box, boxMat );
 	cube.position.set(-0.7, 0.7, 0.0);
-	cube.rotateOnAxis(new THREE.Vector3(1, 1, 1).normalize(), -Math.PI/4); 
+	cube.rotateOnAxis(new THREE.Vector3(1, 1, 1), -Math.PI/4); 
 	scene.add( cube );	
 	
 	// Sphere
