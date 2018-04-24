@@ -4,6 +4,74 @@
 		"selected_items":
 		[
 			[
+				"margin",
+				"margin"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"chec",
+				"checkbox"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"ver",
+				"vertexColors"
+			],
+			[
+				"MA",
+				"Math"
+			],
+			[
+				"Ma",
+				"MAX"
+			],
+			[
+				"no",
+				"normalizeEspheric"
+			],
+			[
+				"c",
+				"checked"
+			],
+			[
+				"Max",
+				"MAX"
+			],
+			[
+				"go",
+				"gotaGeometry"
+			],
+			[
+				"fa",
+				"face_count"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"d",
+				"document"
+			],
+			[
+				"te",
+				"textInput"
+			],
+			[
+				"got",
+				"gotaMaterial"
+			],
+			[
 				"de",
 				"delta_omega"
 			],
@@ -22,10 +90,6 @@
 			[
 				"v",
 				"Vector3"
-			],
-			[
-				"ver",
-				"vertices"
 			],
 			[
 				"fac",
@@ -70,10 +134,6 @@
 			[
 				"comm",
 				"comment"
-			],
-			[
-				"d",
-				"dropdown"
 			],
 			[
 				"drop",
@@ -164,20 +224,12 @@
 				"background"
 			],
 			[
-				"margin",
-				"margin-right"
-			],
-			[
 				"meth",
 				"methodOverride"
 			],
 			[
 				"inline",
 				"inline-flex"
-			],
-			[
-				"padd",
-				"padding-left"
 			],
 			[
 				"ali",
@@ -210,10 +262,6 @@
 			[
 				"f",
 				"flex-wrap"
-			],
-			[
-				"c",
-				"container"
 			],
 			[
 				"pa",
@@ -296,10 +344,6 @@
 				"action\tAttr"
 			],
 			[
-				"get",
-				"getTotalUsers"
-			],
-			[
 				"g",
 				"get\tGet Elements"
 			],
@@ -344,10 +388,6 @@
 				"list-style"
 			],
 			[
-				"font-s",
-				"font-size"
-			],
-			[
 				"fun",
 				"function"
 			],
@@ -376,20 +416,12 @@
 				"inline-block"
 			],
 			[
-				"te",
-				"text-transform"
-			],
-			[
 				"pad",
 				"padding"
 			],
 			[
 				"hard",
 				"hardbtn"
-			],
-			[
-				"bor",
-				"border"
 			],
 			[
 				"s",
@@ -482,10 +514,6 @@
 			[
 				"col",
 				"color"
-			],
-			[
-				"th",
-				"th\tTag"
 			]
 		]
 	},
@@ -495,7 +523,7 @@
 			"file": "Atividade1/gota.html",
 			"settings":
 			{
-				"buffer_size": 582,
+				"buffer_size": 1678,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -504,7 +532,7 @@
 			"file": "Atividade1/gota.js",
 			"settings":
 			{
-				"buffer_size": 2091,
+				"buffer_size": 4545,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -518,9 +546,13 @@
 	"command_palette":
 	{
 		"height": 375.0,
-		"last_filter": "",
+		"last_filter": "con",
 		"selected_items":
 		[
+			[
+				"con",
+				"Indentation: Convert to Tabs"
+			],
 			[
 				"convert to",
 				"Indentation: Convert to Tabs"
@@ -783,6 +815,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"solid",
+			"normalizeEspheric",
+			"espheric",
 			"triangleMesh",
 			"triangleMaterial",
 			"triangleGeometry"
@@ -793,6 +828,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"fixed",
+			"normalizeSpherical",
+			"spherical",
 			"gotaMesh",
 			"gotaMaterial",
 			"gotaGeometry"
@@ -800,7 +838,7 @@
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": true,
+		"whole_word": false,
 		"wrap": true
 	},
 	"groups":
@@ -815,24 +853,25 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 582,
+						"buffer_size": 1678,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								333,
-								333
+								1229,
+								1229
 							]
 						],
 						"settings":
 						{
 							"_anf_new": "",
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 648.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -844,24 +883,25 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2091,
+						"buffer_size": 4545,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2083,
-								2083
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"_anf_new": "",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 964.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,

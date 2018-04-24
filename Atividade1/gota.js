@@ -1,6 +1,6 @@
 var scene, renderer, camera, gotaGeometry, gotaMesh, gotaMaterial;
 var num_vertices;
-var solid, cartesian, spherical;
+var fixed, cartesian, spherical;
 var checkbox;
 
 function init() {
@@ -13,7 +13,7 @@ function init() {
 	renderer.setSize(750, 750);
 
 	document.getElementById("canvas").appendChild(renderer.domElement);
-	solid = document.getElementById('solid');
+	fixed = document.getElementById('fixed');
 	cartesian = document.getElementById('cartesian'); 
 	spherical = document.getElementById('spherical');
 	checkbox = document.getElementById('checkbox');
@@ -48,26 +48,18 @@ function makeGota() {
 
 	gotaGeometry = new THREE.Geometry(); 
 	var x, y, z, omega, theta;
-	var delta_omega = 2*Math.PI/(num_vertices);
-	var delta_theta = Math.PI/(num_vertices);
 	var MAX = {
 		x: 0,
 		y: 0,
 		z: 0,
-		o: 0,
-		t: 0
 	};
 	var MIN = {
 		x: 0,
 		y: 0,
 		z: 0,
-		o: 0,
-		t: 0
 	}
 	for(var i = 0 ; i < num_vertices ; i++){
 		omega = i*2*Math.PI/(num_vertices - 1);
-		MAX.o = MAX.o = Math.max(omega, MAX.o);
-		MIN.o = MIN.o = Math.min(omega, MIN.o);
 		for(var j = 0 ; j < num_vertices ; j++){
 			theta = j*Math.PI/(num_vertices - 1);
 			x = 0.5 * (1 - Math.cos(theta))*Math.sin(theta)*Math.cos(omega);
@@ -75,18 +67,17 @@ function makeGota() {
 			z = Math.cos(theta);
 
 			gotaGeometry.vertices.push(new THREE.Vector3(x, y, z));
-			
+
 			MAX.x = Math.max(x, MAX.x);
 			MAX.y = Math.max(y, MAX.y);
 			MAX.z = Math.max(z, MAX.z);
-			MAX.t = Math.max(theta, MAX.t);
 
 			MIN.x = Math.min(x, MIN.x);
 			MIN.y = Math.min(y, MIN.y);
 			MIN.z = Math.min(z, MIN.z);
-			MIN.t = Math.min(theta, MIN.t);
 		}
 	}
+
 	var face_count = 0;
 	for (var i = 0 ; i < num_vertices - 1; i++){
 		for(var j = 0 ; j < num_vertices - 1; j++){
@@ -107,15 +98,13 @@ function makeGota() {
 	}
 		
 	gotaMaterial = new THREE.MeshBasicMaterial({
-		// vertexColors: THREE.FaceColors,
 		vertexColors: THREE.VertexColors,
 		wireframe: checkbox.checked
 	});
 
 	gotaMesh = new THREE.Mesh(gotaGeometry, gotaMaterial); 
-	// gotaMesh.rotation.x += 0.02;
-	// gotaMesh.rotation.y += 0.01;
 	gotaMesh.rotation.y += Math.PI/2;
+	
 	scene.add(gotaMesh);	
 		
 	renderer.clear();
@@ -132,8 +121,9 @@ function updateSlider(val) {
 };
 
 function faceColor(face, MAX, MIN, omega, theta) {
-	if(solid.checked){
+	if(fixed.checked){
 		face.color = new THREE.Color(0x0000FF);
+	
 	} else if(cartesian.checked) {
 		var v = gotaGeometry.vertices[face.a];
 		face.vertexColors[0] = new THREE.Color(normalizeCartesian(v.x, MAX.x, MIN.x), normalizeCartesian(v.y, MAX.y, MIN.y), normalizeCartesian(v.z, MAX.z, MIN.z));
@@ -143,6 +133,7 @@ function faceColor(face, MAX, MIN, omega, theta) {
 
 		v = gotaGeometry.vertices[face.c];
 		face.vertexColors[2] = new THREE.Color(normalizeCartesian(v.x, MAX.x, MIN.x), normalizeCartesian(v.y, MAX.y, MIN.y), normalizeCartesian(v.z, MAX.z, MIN.z));
+	
 	} else if(spherical.checked) {
 		face.vertexColors[0] = new THREE.Color();
 		face.vertexColors[0].setHSL(normalizeSpherical(omega[0], 2*Math.PI, 0), 1, 1 - normalizeSpherical(theta[0], Math.PI, 0));
