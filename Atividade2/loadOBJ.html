@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Atividade 2</title>
+		<style>
+			body {
+				padding: 0;
+				margin: 0;
+			}
+			label {
+				font-size: 25px;
+			}
+			input, select {
+				font-size: 20px;
+			}
+			button {
+				width: 80px;
+				height: 40px;
+				font-size: 16px;
+			}
+		</style>
+	</head>
+
+	<script type="text/javascript" src="../libs/three.js"></script>
+    <script type="text/javascript" src="../libs/examples/js/loaders/OBJLoader.js"></script>
+	<script type="text/javascript" src="loadOBJ.js"></script>
+	<script type="text/javascript" src="deformation.js"></script>
+	
+	<body onload="init();">
+		<span id="WebGL-output" ></span>
+		<div style="display: inline-block; vertical-align: top;">
+			<h1>BRUNO GUILERA</h1>
+			<h1>Atividade 2</h1>
+			<h1>Transformações Geométricas</h1>
+			<h1>
+				Load OBJ
+				<select name="Object" id="obj" onchange="load(this.value)">
+					<option value="bunny">Bunny</option>
+					<option value="teapot">Teapot</option>
+					<option value="bulba">Bulbassaur</option>
+					<option value="cow">Cow</option>
+				</select>
+			</h1>
+			<label style="display: block;">Deformation:</label>
+			<label>Value: </label>
+			<input type="text" id="defValues" style="width: 40px;">
+			<label>Direction: </label>
+			<select name="Direction" id="direction">
+				<option value="x">X</option>
+				<option value="y">Y</option>
+				<option value="z">Z</option>
+			</select>
+			<br>
+			<button onclick="twist(scene, document.getElementById('defValues').value, document.getElementById('direction').value);">Twist</button>
+			<button onclick="taper(scene, document.getElementById('defValues').value, document.getElementById('direction').value);">Taper</button>
+			<button onclick="shear(scene, document.getElementById('defValues').value, document.getElementById('direction').value);">Shear</button>
+			<button onclick="load(document.getElementById('obj').value)">Reset</button>
+		</div>
+	</body>
+</html>
