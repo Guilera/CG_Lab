@@ -2,7 +2,9 @@ var scene 		= null;
 var renderer	= null;
 var camera 		= null;
 var earth 		= null;
+var marth 		= null;
 var sun 		= null;
+var group		= null;
 var day 		= 0.0;
 var year		= 0.0;
 var month		= 0.0;
@@ -18,9 +20,12 @@ function init() {
 
 	document.getElementById("WebGL-output").appendChild(renderer.domElement);
 
-	camera = new THREE.OrthographicCamera( -1.0, 1.0, 1.0, -1.0, -1.0, 1.0 );
+	camera = new THREE.OrthographicCamera( -2.0, 2.0, 2.0, -2.0, -2.0, 2.0 );
 	scene.add( camera );
-		
+	
+	group = new THREE.Object3D();
+	var m = new THREE.Matrix4();
+
 	// Eixo do Sol
 	var sAxis = new THREE.AxisHelper(0.6);
 
@@ -29,28 +34,44 @@ function init() {
 	var sphereMat = new THREE.MeshBasicMaterial( {color: 0xffff00, wireframe:false} );
 	sun = new THREE.Mesh( sphereGeometry, sphereMat );
 	sun.add(sAxis);
-	scene.add(sun);	
+	group.add(sun);
+	scene.add(group);	
 	
 	// Eixo da Terra
 	var tAxis = new THREE.AxisHelper(0.15);
 
 	// Terra	
-	sphereGeometry = new THREE.SphereGeometry( 0.1, 20, 20);                 
+	m.makeScale(1/4, 1/4, 1/4);
+	sphereGeometry = sun.geometry.clone();
+	sphereGeometry.applyMatrix(m);
 	sphereMat = new THREE.MeshBasicMaterial( {color: 0x0000ff, wireframe:false} );
-	earth = new THREE.Mesh( sphereGeometry, sphereMat );
-	earth.position.set(0.5, 0, 0);
+	earth = new THREE.Mesh(sphereGeometry, sphereMat);
 	earth.add(tAxis);
-	scene.add( earth );	
+	// scene.add(earth);
+	group.add(earth);
+	
+	// Marte
+	m.makeScale(0.53, 0.53, 0.53);
+	sphereGeometry = earth.geometry.clone();
+	sphereGeometry.applyMatrix(m);
+	sphereMat = new THREE.MeshBasicMaterial( {color: 0xff0000, wireframe:false} );
+	marth = new THREE.Mesh(sphereGeometry, sphereMat);
+	marth.add(tAxis);
+	// scene.add(earth);
+	group.add(marth);
 		
 	// Eixo da Lua
 	var lAxis = new THREE.AxisHelper(0.04);
 
 	// Lua	
-	sphereGeometry = new THREE.SphereGeometry( 0.03, 10, 10 );                 
+	m.makeScale(1/3, 1/3, 1/3);
+	sphereGeometry = earth.geometry.clone();
+	sphereGeometry.applyMatrix(m);
 	sphereMat = new THREE.MeshBasicMaterial( {color: 0xaaaaaa, wireframe:false} );
 	moon = new THREE.Mesh( sphereGeometry, sphereMat );
 	moon.add(lAxis);
-	scene.add( moon );	
+	// scene.add(moon);
+	earth.add(moon);
 		
 	renderer.clear();
 	render();
@@ -63,12 +84,19 @@ function render() {
 	year 	+= 0.01;
 	month 	+= 0.04;
 	
-	//BEGIN SUN==========
+	//BEGIN SUN===========
 	sun.matrix.copy(new THREE.Matrix4().identity());
-	m.makeRotationY(year);
+	m.makeRotationX(year);
 	sun.applyMatrix(m);
 	sun.updateMatrix();
-	//=============END SUN
+	//===================END SUN
+
+	//BEGIN GROUP==========
+	group.matrix.copy(new THREE.Matrix4().identity());
+	m.makeRotationY(year);
+	group.applyMatrix(m);
+	group.updateMatrix();
+	//=============END GROUP
 
 	//BEGIN EARTH========
 	earth.matrix.copy(new THREE.Matrix4().identity());
@@ -79,10 +107,6 @@ function render() {
 
 	//TRANSLATE
 	m.makeTranslation(0.7, 0, 0);
-	earth.applyMatrix(m);
-	
-	//ROTATE AROUND SUN
-	m.makeRotationY(year);
 	earth.applyMatrix(m);
 	
 	earth.updateMatrix();
@@ -99,24 +123,25 @@ function render() {
 	m.makeTranslation(0.15, 0, 0);
 	moon.applyMatrix(m);
 
-	//ROTATE AROUND EARTH
-	m.makeRotationY(month);
-	moon.applyMatrix(m);
-	
-	//TRANSLATE TO EARTH
-	m.makeTranslation(0.7, 0, 0);
-	moon.applyMatrix(m);
-
-	//ROTATE AROUND SUN
-	m.makeRotationY(year);
-	moon.applyMatrix(m);
-
 	moon.updateMatrix();
 
 	//==============END MOON
+
+	//BEGIN MARTH========
+	marth.matrix.copy(new THREE.Matrix4().identity());
+	
+	//ROTATE ON ITSELF
+	m.makeRotationY(day);
+	marth.applyMatrix(m);
+
+	//TRANSLATE
+	m.makeTranslation(1.2, 0, 0);
+	marth.applyMatrix(m);
+	
+	marth.updateMatrix();
+	//===========END MARTH
 
 	renderer.render(scene, camera);
 	
 	requestAnimationFrame(render);
 }
-
