@@ -18,16 +18,9 @@ function init() {
 	scene = new THREE.Scene();
 
 	renderer = new THREE.WebGLRenderer();
-	renderer2 = new THREE.WebGLRenderer();
-
 	renderer.setClearColor(new THREE.Color(0.0, 0.0, 0.0));
-	renderer.setSize(window.innerWidth*0.5, window.innerHeight*0.7);
-
-	renderer2.setClearColor(new THREE.Color(0.0, 0.0, 0.0));
-	renderer2.setSize(window.innerWidth*0.5, window.innerHeight*0.7);
-
+	renderer.setSize(window.innerWidth, window.innerHeight);
 	document.getElementById("canvas1").appendChild(renderer.domElement);
-	document.getElementById("canvas2").appendChild(renderer2.domElement);
 
 	cameraPersp = new THREE.PerspectiveCamera(45.0, window.innerWidth/window.innerHeight, 0.1, 1000.0);
 	cameraOrtho = new THREE.OrthographicCamera(-100, 100, 100, -100, 0.1, 100000);
@@ -35,7 +28,7 @@ function init() {
 	// Controle de Camera Orbital
 	orbitControlsP = new THREE.OrbitControls(cameraPersp, renderer.domElement);
 	orbitControlsP.autoRotate = false;
-	orbitControlsO = new THREE.OrbitControls(cameraOrtho, renderer2.domElement);
+	orbitControlsO = new THREE.OrbitControls(cameraOrtho, renderer.domElement);
 	orbitControlsO.autoRotate = false;
 	
 	// Load Mesh
@@ -45,7 +38,6 @@ function init() {
 	initGUI();
 	
 	renderer.clear();
-	renderer2.clear();
 	render();
 };
 
@@ -76,7 +68,6 @@ function loadMesh(loadedMesh) {
 	cameraOrtho.position.y = box.max.y;
 	cameraOrtho.position.z = box.max.z + 100;
 	cameraOrtho.lookAt(new THREE.Vector3(0.0, 0.0, 0.0));
-	orbitControlsO.update();
 
 	cameraOrtho.left	= box.min.x;
 	cameraOrtho.right = box.max.x;
@@ -148,7 +139,22 @@ function render() {
 			}
 		}
 
+	var left = window.innerWidth * 0;
+	var top = window.innerHeight * 0;
+	var width = window.innerWidth * 0.5;
+	var height = window.innerHeight;
+
+	renderer.setViewport(left, top, width, height);
+	renderer.setScissor(left, top, width, height);
+	renderer.setScissorTest(true);		
 	renderer.render(scene, cameraPersp);
-	renderer2.render(scene, cameraOrtho);
+
+	left = window.innerWidth * 0.5;
+
+	renderer.setViewport(left, top, width, height);
+	renderer.setScissor(left, top, width, height);
+	renderer.setScissorTest(true);	
+	renderer.render(scene, cameraOrtho);
+
 	requestAnimationFrame(render);
 }
