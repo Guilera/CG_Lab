@@ -16,28 +16,38 @@ function init() {
 	renderer = new THREE.WebGLRenderer();
 
 	renderer.setClearColor(new THREE.Color(0.0, 0.0, 0.0));
-	renderer.setSize(window.innerWidth*0.7, window.innerHeight*0.7);
+	renderer.setSize(window.innerWidth, window.innerHeight*0.9);
 	aspectRatio = window.innerWidth/window.innerHeight;
 
 	document.getElementById("WebGL-output").appendChild(renderer.domElement);
 
 	camera = new THREE.PerspectiveCamera( 45.0, aspectRatio, 0.1, 1000.0 );
-	camera.lookAt(new THREE.Vector3(0, 0, 0));
+
 	/* QUESTÃO 6
 	camera.position.set(0, 100, 320);
 	camera.lookAt(new THREE.Vector3(0.0, 0.0, 0.0)); */
 	scene.add( camera );
 	
+	var loader = new THREE.OBJLoader();
+	loader.load('../Assets/Models/city.obj', loadMesh);
+
 	// control = new THREE.TrackballControls(camera, renderer.domElement);
 	// control = new THREE.FlyControls(camera, renderer.domElement);
 	control = new THREE.FirstPersonControls(camera, renderer.domElement);
+	// control.movementSpeed = 20;
+	// control.noFly = true;
+	control.lookVertical = true;
+	control.constrainVertical = true;
+	control.verticalMin = 1.5;
+	control.verticalMax = 1.8;
+	control.lon = -150;
+	control.lat = 120;
+
 	// control.autoRotate = false;
 
 	var globalAxis = new THREE.AxisHelper(2.0);
 	scene.add( globalAxis );
 
-	var loader = new THREE.OBJLoader();
-	loader.load('../Assets/Models/city.obj', loadMesh);
 		
 	renderer.clear();
 	render();
@@ -68,10 +78,7 @@ function loadMesh(loadedMesh) {
 
 	var box = new THREE.Box3();
 	box.setFromObject(mesh);
-	camera.position.x = box.max.x;
-	camera.position.y = box.max.y;
-	camera.position.z = box.max.z;
-	camera.lookAt(new THREE.Vector3(-5, -5, 0));
-	control.object.lookAt(new THREE.Vector3(0, 0, 0));
-	control.update(0.5);	
+	camera.position.set(box.max.x, 2, box.max.z);
+	camera.lookAt(new THREE.Vector3(0, 0, 0));
+	camera.updateProjectionMatrix();
 }
