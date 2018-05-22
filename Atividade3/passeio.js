@@ -22,7 +22,8 @@ function init() {
 
 	document.getElementById("WebGL-output").appendChild(renderer.domElement);
 
-	
+	cameras = ["front", "back", "topper"];
+
 	views.front = {
 		width: window.innerWidth,
 		height: window.innerHeight,
@@ -32,28 +33,49 @@ function init() {
 	};
 
 	views.back = {
-		width: window.innerWidth,
-		height: window.innerHeight,
-		aspect: window.innerWidth / window.innerHeight,
-		left: 0,
-		top: 0
-	};
-
-	views.top = {
 		width: 200,
 		height: 200,
 		aspect: 200 / 200,
-		left: window.innerWidth - this.width,
-		top: window.innerHeight - this.height,	
+		left: window.innerWidth - 200,
+		top: window.innerHeight - 400
+	};
+
+	views.topper = {
+		width: 200,
+		height: 200,
+		aspect: 200 / 200,
+		left: window.innerWidth - 200,
+		top: window.innerHeight - 200,	
 	};
 
 
-	views.front.camera = new THREE.PerspectiveCamera(45.0, views.front.aspect, 0.1, 1000.0);
+	views.front.camera = new THREE.PerspectiveCamera(45.0, views.front.aspect, 0.1, 1000);
+	views.back.camera = new THREE.PerspectiveCamera(45.0, views.front.aspect, 0.1, 1000);
+	// views.top.camera = new THREE.OrthographicCamera(views.top.width * -1, views.top.width, views.top.height * -1, views.top.height, 0.1, 1000);
+	views.topper.camera = new THREE.OrthographicCamera(-100, 100, 100, -100, 0.1, 100000);	
+	views.topper.camera.aspect = views.topper.aspect;
+	
+
 
 	scene.add(views.front.camera);
+	scene.add(views.back.camera);
+	scene.add(views.topper.camera);
 	
 	var loader = new THREE.OBJLoader();
 	loader.load('../Assets/Models/city.obj', loadMesh);
+	loader.load('../Assets/Models/porsche.obj', m => {
+		m.name = "car";
+		var material = new THREE.MeshPhongMaterial();
+		material.bothsides	= true;
+		material.side 		= THREE.DoubleSide;
+		m.children.forEach(c => c.material = material);
+		var mat = new THREE.Matrix4();
+		mat.makeScale(2, 2, 2);
+		m.geometry.applyMatrix(mat);
+		m.position.set(260, 0, 240);
+
+		scene.add(m);
+	});
 
 	control = new THREE.FirstPersonControls(views.front.camera, renderer.domElement);
 	control.noFly = true;
@@ -70,20 +92,31 @@ function init() {
 
 
 function render() {
-	control.update(clock.getDelta() * 10); 
-	// control.update(0.5); 
+	control.update(clock.getDelta() * 10);
+	
 	views.front.camera.position.y = 2;
+	
+	views.topper.camera.position.set(views.front.camera.position.x, views.front.camera.position.y + 200, views.front.camera.position.z);	
+	views.topper.camera.lookAt(views.front.camera.position);
+	views.back.camera = views.front.camera.clone();
+	views.back.camera.rotateY(Math.PI);
+	views.back.camera.updateProjectionMatrix();
 
-	renderer.render(scene, views.front.camera);
+	cameras.forEach(v => {
+		renderer.setViewport(views[v].left, views[v].top, views[v].width, views[v].height);
+		renderer.setScissor(views[v].left, views[v].top, views[v].width, views[v].height);
+		renderer.setScissorTest(true);
+		renderer.render(scene, views[v].camera);
+	});
 	requestAnimationFrame(render);
 }
 
 function loadMesh(loadedMesh) {
 	loadedMesh.name = "city";
-	var material = new THREE.MeshPhongMaterial({
-		bothsides: true,
-		side: THREE.DoubleSide
-	});
+
+	var material = new THREE.MeshPhongMaterial();
+	material.bothsides	= false;
+	material.side 		= THREE.FrontSide;
 	
 	loadedMesh.children.forEach(function (child) {
 		child.material = material;
