@@ -59,8 +59,8 @@ function loadMesh(loadedMesh) {
 	camera.position.x = box.max.x;
 	camera.position.y = box.max.y;
 	camera.position.z = box.max.z;
-	camera.lookAt(new THREE.Vector3(0.0, 0.0, 0.0));
 	orbitControls.update();
+	camera.lookAt(new THREE.Vector3(0.0, 1000, 0.0));
 	
 	//Add point light Source
 	var pointLight1 = new THREE.PointLight(new THREE.Color(1.0, 1.0, 1.0));

@@ -17,7 +17,7 @@ function init() {
 	
 	scene = new THREE.Scene();
 
-	renderer = new THREE.WebGLRenderer();
+	renderer = new THREE.WebGLRenderer({antialias: true});
 	renderer.setClearColor(new THREE.Color(0.0, 0.0, 0.0));
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	document.getElementById("canvas1").appendChild(renderer.domElement);
@@ -58,21 +58,23 @@ function loadMesh(loadedMesh) {
 	box = new THREE.Box3();
 	box.setFromObject(mesh);
 	
-	cameraPersp.position.x = box.max.x;
+	cameraPersp.position.x = box.max.x + 100;
 	cameraPersp.position.y = box.max.y;
-	cameraPersp.position.z = box.max.z;
+	cameraPersp.position.z = box.max.z + 100;
 	cameraPersp.lookAt(new THREE.Vector3(0.0, 0.0, 0.0));
-	orbitControlsP.update();
+	cameraPersp.zoom /= 1.5;
+	cameraPersp.updateProjectionMatrix();
 
-	cameraOrtho.position.x = box.max.x + 100;
-	cameraOrtho.position.y = box.max.y;
-	cameraOrtho.position.z = box.max.z + 100;
-	cameraOrtho.lookAt(new THREE.Vector3(0.0, 0.0, 0.0));
 
 	cameraOrtho.left	= box.min.x;
 	cameraOrtho.right = box.max.x;
 	cameraOrtho.top = box.max.y;
 	cameraOrtho.bottom = box.min.y;
+	
+	cameraOrtho.position.x = box.max.x + 100;
+	cameraOrtho.position.y = box.max.y;
+	cameraOrtho.position.z = box.max.z + 100;
+	cameraOrtho.lookAt(new THREE.Vector3(0.0, 0.0, 0.0));
 	cameraOrtho.zoom /= 1.5;
 	cameraOrtho.updateProjectionMatrix();
 	
@@ -139,14 +141,16 @@ function render() {
 			}
 		}
 
-	var left = window.innerWidth * 0;
-	var top = window.innerHeight * 0;
+	var left = 0;
+	var top = 0;
 	var width = window.innerWidth * 0.5;
 	var height = window.innerHeight;
 
 	renderer.setViewport(left, top, width, height);
 	renderer.setScissor(left, top, width, height);
 	renderer.setScissorTest(true);		
+	cameraPersp.aspect = width/height;
+	cameraPersp.updateProjectionMatrix();		
 	renderer.render(scene, cameraPersp);
 
 	left = window.innerWidth * 0.5;
@@ -154,7 +158,27 @@ function render() {
 	renderer.setViewport(left, top, width, height);
 	renderer.setScissor(left, top, width, height);
 	renderer.setScissorTest(true);	
+	cameraOrtho.aspect = width/height;
+	cameraOrtho.updateProjectionMatrix();		
 	renderer.render(scene, cameraOrtho);
+
+	// var left = window.innerWidth * 0;
+	// var top = window.innerHeight * 0;
+	// var width = window.innerWidth;
+	// var height = window.innerHeight;
+
+	// renderer.setViewport(0, 0, window.innerWidth, window.innerHeight);
+	// renderer.clear();
+
+	// renderer.setViewport(0, 0, window.innerWidth-2, 0.5*window.innerHeight-2);
+	// renderer.setScissor(0, 0, window.innerWidth-2, 0.5*window.innerHeight-2);
+	// renderer.setScissorTest(true);		
+	// renderer.render(scene, cameraPersp);
+
+	// renderer.setViewport(10, window.innerHeight - 200 - 10, 200, 200 );
+	// renderer.setScissor(10, window.innerHeight - 200 - 10, 200, 200 );
+	// renderer.setScissorTest(true);		
+	// renderer.render(scene, cameraOrtho);
 
 	requestAnimationFrame(render);
 }
