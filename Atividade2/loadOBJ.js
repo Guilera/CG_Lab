@@ -8,19 +8,19 @@ var loader;
 
 var option = {
 	"bulba" : {
-		path : '../../Assets/Models/Bulbasaur.obj',
+		path : '../Assets/Models/Bulbasaur.obj',
 		camera : new THREE.OrthographicCamera( -10.0, 10.0, 10.0, -10.0, -10.0, 10.0) 
 	},
 	"bunny" : {
-		path : '../../Assets/Models/bunnyExp.obj',
+		path : '../Assets/Models/bunnyExp.obj',
 		camera : new THREE.OrthographicCamera( -400.0, 400.0, 400.0, -400.0, -400.0, 400.0)
 	},
 	"teapot" : {
-		path : '../../Assets/Models/teapot.obj',
+		path : '../Assets/Models/teapot.obj',
 		camera : new THREE.OrthographicCamera( -120.0, 120.0, 120.0, -120.0, -120.0, 120.0)
 	},
 	"cow" : {
-		path : '../../Assets/Models/cow.obj',
+		path : '../Assets/Models/cow.obj',
 		camera : new THREE.OrthographicCamera( -8.0, 8.0, 8.0, -8.0, -8.0, 8.0)
 	}
 };
