@@ -3,7 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MATA65 - Computacao Grafica</title>
-	<h1>BRUNO GUILERA - Atividade 4 - Manipulando Imagem</h1>
+	<h1>
+		BRUNO GUILERA - Atividade 4 - Manipulando Imagem
+		<select name="Image" id="img_selector" onchange="console.log(this.value); load(this.value);">
+			<option value='../Assets/Images/barbara.png'>(B&W) Barbara</option>
+			<option value='../Assets/Images/mountain.jpg'>(B&W) Mountain</option>
+			<option value='../Assets/Images/lena.png'>(Color) Lena</option>
+			<option value='../Assets/Images/house.jpg'>(Color) House</option>
+		</select>
+	</h1>
 	<style>
 		body, h1 {
 			margin: 0;
@@ -15,7 +23,7 @@
 	<script type="text/javascript" src="../libs/three.js"></script>
 	<script type="text/javascript" src="imagem.js"></script>
 
-	<body onload="init();">
+	<body onload="init(); load('../Assets/Images/barbara.png');">
 		<div id="canvas"></div>
 	</body>
 </body>
