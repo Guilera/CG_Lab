@@ -1,0 +1,44 @@
+<html>
+
+	<head>
+		<title>MATA65 - Computacao Grafica</title>
+	    <h1>Lab8 - Filtragem Espacial.</h1>
+	    <h3>Utilizando Shaders e RenderPass.</h3>
+	</head>
+	   
+	<script id="rgb-vs" type="x-shader/x-vertex">		
+	
+		varying vec2 vUv;
+		void main(void) {
+			vUv = uv;
+			gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+		}
+	</script>
+	
+	<script id="rgb-fs" type="x-shader/x-fragment">
+		precision mediump float;
+		
+		uniform vec3 uChannel;
+		uniform sampler2D tDiffuse;
+		varying vec2 vUv;
+			
+		void main(void) {	
+			vec4 c = texture2D(tDiffuse, vUv);
+			gl_FragColor = vec4(c.r*uChannel.r, c.g*uChannel.g, c.b*uChannel.b, c.a);
+		}
+	</script>
+	
+	<script type="text/javascript" src="../libs/three.js"></script>
+    <script type="text/javascript" src="../libs/examples/js/shaders/CopyShader.js"></script>
+    <script type="text/javascript" src="../libs/examples/js/postprocessing/EffectComposer.js"></script>
+    <script type="text/javascript" src="../libs/examples/js/postprocessing/ShaderPass.js"></script>
+    <script type="text/javascript" src="../libs/examples/js/postprocessing/RenderPass.js"></script>
+	<script type="text/javascript" src="3-Compose.js"></script>
+		
+	<body onload="init();">
+		<input type="checkbox" id="redC" name="red" value="red" onclick="onClick(0)" checked>Red
+		<input type="checkbox" id="greenC" name="green" value="green" onclick="onClick(1)">Green
+		<input type="checkbox" id="blueC" name="blue" value="blue" onclick="onClick(2)">Blue
+		<div id="WebGL-output" ></div>
+	</body>
+</html>

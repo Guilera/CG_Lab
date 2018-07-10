@@ -1,0 +1,54 @@
+<html>
+	
+	<head>
+		<title>MATA65 - Computacao Grafica</title>
+		<h1>Imagem Digital - Filtragem Espacial.</h1>
+		<h3>Aplicando um filtro de suavizacao.</h3>
+	</head>
+	   
+	<script id="suaviza-vs" type="x-shader/x-vertex">		
+	
+		varying vec2 vUv;			
+		void main(void) {
+			vUv = uv;
+			gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+		}
+	</script>
+	
+	<script id="suaviza-fs" type="x-shader/x-fragment">
+		precision mediump float;
+		
+		uniform sampler2D uSampler;
+		uniform bool uApplyFilter;
+		uniform vec2 uPixelSize;
+		varying vec2 vUv;
+		
+		vec4 c;
+
+		void main(void) {	
+			if (uApplyFilter) 
+				c = (	texture2D(uSampler, vUv) +
+						texture2D(uSampler, vUv + vec2( -uPixelSize.x, 0.0)) +
+						texture2D(uSampler, vUv + vec2(  uPixelSize.x, 0.0)) +
+						texture2D(uSampler, vUv + vec2(  0.0, -uPixelSize.y)) +
+						texture2D(uSampler, vUv + vec2(  0.0, uPixelSize.y)) +
+						texture2D(uSampler, vUv + vec2(  uPixelSize.x,  uPixelSize.y)) +	   				
+						texture2D(uSampler, vUv + vec2( -uPixelSize.x,  uPixelSize.y)) +   				
+						texture2D(uSampler, vUv + vec2(  uPixelSize.x, -uPixelSize.y)) +	   				
+						texture2D(uSampler, vUv + vec2( -uPixelSize.x, -uPixelSize.y))    				
+					  ) / 9.0;
+			else
+				c = texture2D(uSampler, vUv);
+			
+			gl_FragColor = c;
+		}
+	</script>
+	
+	<script type="text/javascript" src="../libs/three.js"></script>
+	<script type="text/javascript" src="../libs/examples/js/libs/dat.gui.min.js"></script>
+	<script type="text/javascript" src="2-suavizacao.js"></script>
+		
+	<body onload="init();">
+		<div id="WebGL-output" ></div>
+	</body>
+</html>
