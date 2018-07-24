@@ -59,7 +59,7 @@ function load(file) {
 		//old image
 		renderImage(10, window.innerHeight);
 		renderHistograms(10, window.innerHeight);
-
+		console.log(red);
 		
 		//new image
 		var new_data = equalizer(image_data, red, green, blue);
@@ -165,7 +165,7 @@ function histogram(red, green, blue) {
 			if(colors[c][i]) {
 				geometry.vertices.push(new THREE.Vector3(i, 0, 0));
 				geometry.vertices.push(new THREE.Vector3(i, normalize(colors[c][i]), 0));
-				geometry.vertices.push(new THREE.Vector3(i, normalize(colors[c][i]), 1));
+				geometry.vertices.push(new THREE.Vector3(i, 0, 0));
 			}
 		}
 
