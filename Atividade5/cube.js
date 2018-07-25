@@ -2,7 +2,7 @@ var scene, camera, renderer, video, controls, cube;
 
 function init() {
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 10000);
 
     renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -13,48 +13,41 @@ function init() {
     
     video = document.getElementById('video');
     getVideo(video);
-    var texture = getVideoTexture();
+    var videoTexture = getVideoTexture();
+    var environmentTexture = getEnvironmentTexture();
     var loader = new THREE.TextureLoader();
 
-    var normal = loader.load("Brick_Wall_011_NORM.jpg");
-    // var displacement = loader.load("Brick_Wall_011_DISP.png");
-    var displacement = loader.load("cobblestone.png");
-    var alpha = loader.load("alpha.png");
-    var bump = loader.load("bricks_bump.jpg");
-    var enviroment = loader.load("");
-
-
     var materials = [
-        new THREE.MeshStandardMaterial({map: texture, normalMap: normal}),
-        new THREE.MeshStandardMaterial({map: texture, displacementMap: displacement, displacementScale: 0.5}),
-        new THREE.MeshStandardMaterial({map: texture, alphaMap: alpha, transparent: false, alphaTest: 0.3}),
-        new THREE.MeshStandardMaterial({map: texture, bumpMap: bump}),
-        new THREE.MeshPhongMaterial({specularMap: texture, color: "#C288C9"}),
-        new THREE.MeshStandardMaterial()
+        new THREE.MeshStandardMaterial({map: videoTexture, displacementMap: loader.load("disp.jpg"), displacementScale: 1.8, displacementBias: -1}),
+        new THREE.MeshStandardMaterial({map: videoTexture, normalMap: loader.load("normal.jpg")}),
+        new THREE.MeshPhongMaterial({specularMap: videoTexture, color: "#C288C9"}),
+        new THREE.MeshStandardMaterial({map: videoTexture, bumpMap: videoTexture}),
+        new THREE.MeshStandardMaterial({map: videoTexture, alphaMap: videoTexture, transparent: false, alphaTest: 0.3}),
+        new THREE.MeshLambertMaterial({envMap: environmentTexture})
     ];
 
-    cube = new THREE.Mesh(new THREE.BoxGeometry(562, 562, 562, 1, 1, 1), materials);
+    cube = new THREE.Mesh(new THREE.BoxGeometry(10, 10, 10, 100, 100, 100), materials);
     
-    buildScene(cube);
+    scene.background = environmentTexture;
+    positionCamera(cube);
     scene.add(cube);
 
     var ambientLight = new THREE.AmbientLight(0x444444);
-    scene.add(ambientLight);
-
-    var light = new THREE.PointLight(0xffffff, 1);
-
-    camera.add(light);
+    var pointLight = new THREE.PointLight(0xffffff, 1);
+    
+    camera.add(pointLight);
     scene.add(camera);
+    scene.add(ambientLight);
 
     render();
 };
 
 function render() {
     
-    // if(cube) {
-    //     cube.rotation.x += 0.005;
-    //     cube.rotation.z += 0.005;
-    // }
+    if(cube) {
+        cube.rotation.x += 0.005;
+        cube.rotation.z += 0.005;
+    }
 
     controls.update();
     requestAnimationFrame(render);
@@ -92,14 +85,27 @@ function getVideoTexture() {
     return texture;
 };
 
-function buildScene(loadedMesh) {
-	var box = new THREE.Box3();
-	box.setFromObject(loadedMesh);	
+function getEnvironmentTexture() {
+    var texture = new THREE.CubeTextureLoader().load([
+        "posx.jpg", 
+        "negx.jpg",
+        "posy.jpg", 
+        "negy.jpg",
+        "posz.jpg",
+        "negz.jpg"
+    ]);
+    texture.format = THREE.RGBFormat;
+    texture.mapping = THREE.CubeReflectionMapping;
+    
+    return texture;
+};
 
-    var maxCoord = Math.max(box.max.x,box.max.y,box.max.z);
+function positionCamera(cubeMesh) {
+	var box = new THREE.Box3().setFromObject(cubeMesh);	
+    var max = Math.max(box.max.x, box.max.y, box.max.z);
 	
-	camera.position.x = camera.position.y = camera.position.z = maxCoord * 2.5;
-	camera.far = new THREE.Vector3(maxCoord*5, maxCoord*5, maxCoord*5).length();
+	camera.position.x = camera.position.y = camera.position.z = max * 2.5;
+	camera.far = new THREE.Vector3(max * 5, max * 5, max * 5).length();
 	camera.lookAt(new THREE.Vector3((box.max.x + box.min.x) / 2.0, (box.max.y + box.min.y) / 2.0, (box.max.z + box.min.z) / 2.0));
 	camera.updateProjectionMatrix();	
 }
